@@ -1,0 +1,137 @@
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">NAM STORE
+    <small>Đẳng cấp phái mạnh</small>
+  </h1>
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGgeb4ZrCf_W5bpLaO0-30GgupAIzHRKJktkFKwxq4fs9V9HZa"
+        alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Ola</h3>
+      <p>Những mẫu giày nam đẹp màu Nâu 2017 trong bộ sưu tập THE BROWN lại tiếp tục có tại shop giày da cao cấp NAM STORE,
+        Với những mẫu này bạn hoàn toàn có thể Mix được với các bộ suit cưới hot nhất trong năm nay!</p>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+  <!-- Related Projects Row -->
+  <h3 class="my-4">Giày nam THE BROWN</h3>
+
+  <div class="row">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://www.giay99.com/uploads/6/1/9/7/6197270/o8a0010.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://www.giay99.com/uploads/6/1/9/7/6197270/o8a0004.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://www.giay99.com/uploads/6/1/9/7/6197270/o8a0006_2.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://www.giay99.com/uploads/6/1/9/7/6197270/o8a0010.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://www.giay99.com/uploads/6/1/9/7/6197270/o8a0010.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://www.giay99.com/uploads/6/1/9/7/6197270/o8a0010.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Đăng ký</button>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+  <!-- Form tao moi -->
+  <div class="row">
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Customer</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form class="" [formGroup]="form">
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="fullName" placeholder="fullName">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="address" placeholder="address">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="phoneNumber" placeholder="PhoneNumber">
+                <div *ngIf="form.controls['phoneNumber'].invalid && (form.controls['phoneNumber'].dirty
+                || form.controls['phoneNumber'].touched)" class="alert alert-danger">555-555-5555</div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" formControlName="email" placeholder="email">
+                <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty
+                || form.controls['email'].touched)" class="alert alert-danger">example@gmail.com</div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="pastalCode" placeholder="pastalCode">
+              </div>
+              <button class="btn btn-primary" (click)="onSubmit(form.value)" data-dismiss="modal">Create</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">NICE</p>
+  </div>
+  <!-- /.container -->
+</footer>

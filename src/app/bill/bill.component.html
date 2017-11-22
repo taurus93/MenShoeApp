@@ -1,0 +1,133 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="input-group">
+        <input class="" type="text" placeholder="Nhập id khách hàng cần tìm kiếm" #searchBox id="search-box" (keyup)="search(searchBox.value)"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Customer ID</th>
+          <th>Shoe ID</th>
+          <th>amount</th>
+          <th>total</th>
+          <!-- <th>Get</th> -->
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="list">
+        <tr *ngFor="let u of list | paginate: {itemsPerPage: 5, currentPage: page, id: '1'}; let i = index">
+          <th>{{i + 1}}</th>
+          <th>{{u.id.customerId}}</th>
+          <th>{{u.id.shoeId}}</th>
+          <td>{{u.amount}}</td>
+          <td>{{u.total}}</td>
+          <!-- <td>
+                <button class="btn btn-danger" (click)="onClickToGetDetail(u.bankId)">Get</button>
+              </td> -->
+          <td>
+            <button type="button" class="btn btn-warning" (click)="onClickToEdit(u.id.id, u.id.shoeId, u.id.customerId)" data-toggle="modal" data-target="#myModal2">Edit</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="onClickToDelete(u.id.id, u.id.shoeId, u.id.customerId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="page = $event" id="1" maxSize="5" directionLinks="true" autoHide="true">
+    </pagination-controls>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form tao moi -->
+  <div class="row">
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Account</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form class="" [formGroup]="form">
+              <div class="form-group" formGroupName="id">
+                <input type="text" class="form-control" formControlName="shoeId" placeholder="shoeId">
+              </div>
+              <div class="form-group" formGroupName="id">
+                <input type="text" class="form-control" formControlName="customerId" placeholder="customerId">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="amount" placeholder="amount">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="total" placeholder="total">
+              </div>
+              <button class="btn btn-primary" (click)="onSubmit(form.value)" data-dismiss="modal">Create</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form cap nhat -->
+  <div class="row">
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Account</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form class="" [formGroup]="form2">
+              <div class="form-group" formGroupName="id">
+                <input type="text" class="form-control" formControlName="id" placeholder="id">
+              </div>
+              <div class="form-group" formGroupName="id">
+                <input type="text" class="form-control" formControlName="shoeId" placeholder="shoeId">
+              </div>
+              <div class="form-group" formGroupName="id">
+                <input type="text" class="form-control" formControlName="customerId" placeholder="customerId">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="amount" placeholder="amount">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="total" placeholder="total">
+              </div>
+              <button class="btn btn-primary" (click)="onClickToUpdate(form2.value)" data-dismiss="modal">Update</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
